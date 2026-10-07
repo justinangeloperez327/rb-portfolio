@@ -3,6 +3,7 @@ import { ArrowDownRight } from "lucide-react";
 
 import { AboutProfile } from "@/components/about-profile";
 import { ArchiveSection } from "@/components/archive-section";
+import { ContactSection } from "@/components/contact-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { MidnightLily } from "@/components/midnight-lily";
 import { ProjectsSection } from "@/components/projects-section";
@@ -133,21 +134,7 @@ export default function Home() {
 
         <ArchiveSection />
 
-        <footer id="contact" className="scroll-mt-20">
-          <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:px-16 lg:py-28">
-            <div className="lg:col-span-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">RBP / 2026</p>
-            </div>
-            <div className="lg:col-span-8">
-              <p className="text-3xl tracking-[-0.04em] sm:text-4xl">
-                Procurement × Technology × Systems
-              </p>
-              <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">
-                Contact details and professional links will be connected in the dedicated contact phase.
-              </p>
-            </div>
-          </div>
-        </footer>
+        <ContactSection />
       </main>
     </>
   );

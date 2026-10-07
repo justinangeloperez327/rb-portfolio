@@ -92,12 +92,15 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
     background: var(--background);
   }
 
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
     text-rendering: optimizeLegibility;
+    overflow-wrap: break-word;
   }
 
   ::selection {
@@ -133,5 +136,21 @@
   to {
     transform: scale(1.015);
     opacity: 1;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
