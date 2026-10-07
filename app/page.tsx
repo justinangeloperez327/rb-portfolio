@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 import { AboutProfile } from "@/components/about-profile";
+import { ExperienceSection } from "@/components/experience-section";
 import { MidnightLily } from "@/components/midnight-lily";
 import { SiteHeader } from "@/components/site-header";
 
@@ -124,29 +125,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="scroll-mt-20 border-b border-border">
-          <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-28 sm:px-8 lg:grid-cols-12 lg:px-16 lg:py-40">
-            <div className="lg:col-span-4">
-              <p className="section-label">02 / Experience</p>
-            </div>
-            <div className="lg:col-span-8">
-              <div className="border-t border-border">
-                <div className="grid gap-6 py-8 sm:grid-cols-[180px_1fr]">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                    Current
-                  </p>
-                  <div>
-                    <h2 className="text-3xl tracking-[-0.035em]">Procurement Manager</h2>
-                    <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-                      Focused on commercial decision-making, supplier relationships, sourcing, negotiations,
-                      contracts, and coordinated procurement operations.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ExperienceSection />
 
         <section id="projects" className="scroll-mt-20 border-b border-border">
           <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
