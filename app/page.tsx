@@ -21,7 +21,7 @@ export default function Home() {
       <div id="top" aria-hidden="true" />
       <SiteHeader />
 
-      <main id="main-content" className="relative overflow-hidden">
+      <main id="main-content" tabIndex={-1} className="relative overflow-hidden focus:outline-none">
         <section className="relative min-h-svh border-b border-border">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]" />
           <div className="pointer-events-none absolute -left-48 top-1/4 size-[520px] rounded-full bg-primary/8 blur-[140px]" />

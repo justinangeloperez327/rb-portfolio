@@ -112,6 +112,10 @@
   button {
     -webkit-tap-highlight-color: transparent;
   }
+
+  :target {
+    scroll-margin-top: 5rem;
+  }
 }
 
 @layer components {
@@ -138,7 +142,6 @@
     opacity: 1;
   }
 }
-
 
 @media (prefers-reduced-motion: reduce) {
   html {
