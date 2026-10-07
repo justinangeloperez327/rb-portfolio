@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 
 import { AboutProfile } from "@/components/about-profile";
 import { ExperienceSection } from "@/components/experience-section";
 import { MidnightLily } from "@/components/midnight-lily";
+import { ProjectsSection } from "@/components/projects-section";
 import { SiteHeader } from "@/components/site-header";
 
 const principles = [
@@ -127,31 +128,7 @@ export default function Home() {
 
         <ExperienceSection />
 
-        <section id="projects" className="scroll-mt-20 border-b border-border">
-          <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-            <div className="grid gap-10 lg:grid-cols-12">
-              <p className="section-label lg:col-span-4">03 / Projects</p>
-              <div className="lg:col-span-8">
-                <h2 className="text-4xl tracking-[-0.045em] sm:text-5xl">Selected work will live here.</h2>
-                <p className="mt-5 max-w-xl leading-7 text-muted-foreground">
-                  This area is reserved for carefully selected technical and professional projects rather
-                  than a wall of generic cards.
-                </p>
-                <div className="mt-12 border-y border-border">
-                  <div className="flex min-h-28 items-center justify-between gap-6">
-                    <div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
-                        Curated / case studies
-                      </p>
-                      <p className="mt-2 text-xl">Professional + technical work</p>
-                    </div>
-                    <ArrowUpRight className="size-5 text-muted-foreground" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProjectsSection />
 
         <section id="archive" className="scroll-mt-20 border-b border-border">
           <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-28 sm:px-8 lg:grid-cols-12 lg:px-16 lg:py-40">
