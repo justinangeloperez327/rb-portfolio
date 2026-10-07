@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowDownRight } from "lucide-react";
 
 import { AboutProfile } from "@/components/about-profile";
+import { ArchiveSection } from "@/components/archive-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { MidnightLily } from "@/components/midnight-lily";
 import { ProjectsSection } from "@/components/projects-section";
@@ -130,23 +131,7 @@ export default function Home() {
 
         <ProjectsSection />
 
-        <section id="archive" className="scroll-mt-20 border-b border-border">
-          <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-28 sm:px-8 lg:grid-cols-12 lg:px-16 lg:py-40">
-            <p className="section-label lg:col-span-4">04 / Archive</p>
-            <div className="lg:col-span-8">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-blue-300">
-                Watching / Listening / Playing
-              </p>
-              <h2 className="mt-6 max-w-4xl text-4xl tracking-[-0.045em] sm:text-5xl">
-                The personal layer comes after the professional story.
-              </h2>
-              <p className="mt-6 max-w-2xl leading-7 text-muted-foreground">
-                Music, anime, film, and instruments will become part of the archive without turning the
-                portfolio into a fan page. The design will use those interests as editorial texture.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ArchiveSection />
 
         <footer id="contact" className="scroll-mt-20">
           <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:px-16 lg:py-28">
