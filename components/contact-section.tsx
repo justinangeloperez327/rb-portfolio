@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUp, AtSign, Github, Linkedin } from "lucide-react";
+import { ArrowUp, AtSign, Code2, Link as LinkIcon } from "lucide-react";
 
 const contactChannels = [
   {
@@ -12,13 +12,13 @@ const contactChannels = [
     label: "LinkedIn",
     detail: "Career & professional network",
     status: "To be linked",
-    icon: Linkedin,
+    icon: LinkIcon,
   },
   {
     label: "GitHub",
     detail: "Technical work & repositories",
     status: "To be linked",
-    icon: Github,
+    icon: Code2,
   },
 ];
 
