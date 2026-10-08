@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "validate:content": "node scripts/validate-content.ts"
+    "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.4.0",
