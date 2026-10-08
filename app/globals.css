@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -187,6 +185,7 @@
   html.motion-ready [data-reveal][data-reveal-visible="true"] {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+    will-change: auto;
   }
 }
 
@@ -221,5 +220,17 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+@supports (content-visibility: auto) {
+  #about,
+  #experience,
+  #projects,
+  #archive,
+  #contact {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
   }
 }

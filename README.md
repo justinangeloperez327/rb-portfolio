@@ -71,3 +71,10 @@ npm run validate:content
 ```
 
 Validation rejects duplicate or malformed project slugs, incomplete published case studies, invalid contact links, malformed optional dates, duplicate keywords, broken navigation anchors, and invalid `NEXT_PUBLIC_SITE_URL` values.
+
+
+## Production hardening
+
+The app sends baseline security headers for all routes, keeps the full portfolio content out of the client-side navigation bundle, defers rendering work for below-the-fold sections where supported, and releases animation `will-change` hints after reveals complete.
+
+A strict Content Security Policy is intentionally not hard-coded yet because Next.js runtime scripts require a nonce/hash strategy; adding a permissive CSP would create the appearance of security without meaningful protection.

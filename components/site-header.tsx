@@ -4,11 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-import { portfolioContent } from "@/content/portfolio";
+import type { PortfolioContent } from "@/content/portfolio";
 
-const navigation = portfolioContent.navigation;
+type SiteHeaderProps = {
+  name: string;
+  shortName: string;
+  positioning: string;
+  navigation: PortfolioContent["navigation"];
+};
 
-export function SiteHeader() {
+export function SiteHeader({
+  name,
+  shortName,
+  positioning,
+  navigation,
+}: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -43,10 +53,20 @@ export function SiteHeader() {
       observer.observe(section);
     }
 
+    let frame = 0;
+
     const onScroll = () => {
-      if (window.scrollY < Math.max(window.innerHeight * 0.45, 320)) {
-        setActiveSection("");
+      if (frame) {
+        return;
       }
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+
+        if (window.scrollY < Math.max(window.innerHeight * 0.45, 320)) {
+          setActiveSection("");
+        }
+      });
     };
 
     onScroll();
@@ -55,8 +75,12 @@ export function SiteHeader() {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
+
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
     };
-  }, []);
+  }, [navigation]);
 
   useEffect(() => {
     if (!menuOpen) {
@@ -141,13 +165,13 @@ export function SiteHeader() {
             href="#top"
             onClick={closeMenu}
             className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            aria-label={`${portfolioContent.identity.name} — home`}
+            aria-label={`${name} — home`}
           >
             <span className="grid size-9 place-items-center border border-border bg-background font-mono text-[11px] font-medium tracking-[0.18em] text-foreground transition-[border-color,background-color] duration-200 group-hover:border-primary/70 group-hover:bg-primary/[0.05]">
-              {portfolioContent.identity.shortName}
+              {shortName}
             </span>
             <span className="hidden text-sm font-medium tracking-tight text-foreground/90 sm:inline">
-              {portfolioContent.identity.name}
+              {name}
             </span>
           </Link>
 
@@ -234,7 +258,9 @@ export function SiteHeader() {
                   <span className="font-mono text-[10px] tracking-[0.18em] text-primary">
                     {item.index}
                   </span>
-                  <span className="min-w-0 text-2xl tracking-[-0.03em] text-foreground">{item.label}</span>
+                  <span className="min-w-0 text-2xl tracking-[-0.03em] text-foreground">
+                    {item.label}
+                  </span>
                   <span
                     className={`font-mono text-[10px] uppercase tracking-[0.15em] transition-colors ${
                       active ? "text-blue-300" : "text-muted-foreground group-hover:text-blue-300"
@@ -249,10 +275,10 @@ export function SiteHeader() {
 
           <div className="mt-auto border-t border-border pt-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
-              RBP / Portfolio
+              {shortName} / Portfolio
             </p>
             <p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">
-              {portfolioContent.identity.positioning}
+              {positioning}
             </p>
           </div>
         </nav>

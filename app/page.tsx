@@ -15,7 +15,12 @@ export default function Home() {
   return (
     <>
       <div id="top" aria-hidden="true" />
-      <SiteHeader />
+      <SiteHeader
+        name={portfolioContent.identity.name}
+        shortName={portfolioContent.identity.shortName}
+        positioning={portfolioContent.identity.positioning}
+        navigation={portfolioContent.navigation}
+      />
       <MotionController />
 
       <main id="main-content" tabIndex={-1} className="relative overflow-hidden focus:outline-none">
