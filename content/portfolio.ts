@@ -150,7 +150,7 @@ export interface PortfolioContent {
   };
 }
 
-export const portfolioContent = {
+export const portfolioContent: PortfolioContent = {
   identity: {
     name: "Ruth Berlie Perez",
     shortName: "RBP",
@@ -435,4 +435,4 @@ export const portfolioContent = {
     publicationNote:
       "Contact information is intentionally not fabricated. Real email and profile URLs should be added before public launch.",
   },
-} satisfies PortfolioContent;
+};
