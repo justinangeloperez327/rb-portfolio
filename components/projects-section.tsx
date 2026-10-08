@@ -32,7 +32,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="scroll-mt-20 border-b border-border">
       <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-        <div className="grid gap-14 lg:grid-cols-12">
+        <div data-reveal className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="section-label">03 / Projects</p>
           </div>
@@ -53,7 +53,7 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        <div className="mt-16 grid border-t border-border lg:grid-cols-2">
+        <div data-reveal data-reveal-delay="1" className="mt-16 grid border-t border-border lg:grid-cols-2">
           {workTracks.map((track, position) => {
             const Icon = track.icon;
 

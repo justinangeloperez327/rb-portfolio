@@ -40,7 +40,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="scroll-mt-20 border-b border-border">
       <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-        <div className="grid gap-14 lg:grid-cols-12">
+        <div data-reveal className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="section-label">02 / Experience</p>
           </div>
@@ -60,7 +60,7 @@ export function ExperienceSection() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-border">
+        <div data-reveal data-reveal-delay="1" className="mt-16 border-t border-border">
           <article className="grid gap-8 py-10 lg:grid-cols-12 lg:py-12">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3">

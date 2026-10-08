@@ -38,7 +38,7 @@ export function ContactSection() {
         <div className="pointer-events-none absolute bottom-0 right-0 size-[480px] rounded-full bg-primary/[0.07] blur-[140px]" />
 
         <div className="relative mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-          <div className="grid gap-14 lg:grid-cols-12">
+          <div data-reveal className="grid gap-14 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="section-label">05 / Contact</p>
             </div>
@@ -70,7 +70,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="mt-16 border-t border-border">
+          <div data-reveal data-reveal-delay="1" className="mt-16 border-t border-border">
             {contactChannels.map((channel, index) => {
               const Icon = channel.icon;
 

@@ -6,6 +6,7 @@ import { ArchiveSection } from "@/components/archive-section";
 import { ContactSection } from "@/components/contact-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { MidnightLily } from "@/components/midnight-lily";
+import { MotionController } from "@/components/motion-controller";
 import { ProjectsSection } from "@/components/projects-section";
 import { SiteHeader } from "@/components/site-header";
 
@@ -20,6 +21,7 @@ export default function Home() {
     <>
       <div id="top" aria-hidden="true" />
       <SiteHeader />
+      <MotionController />
 
       <main id="main-content" tabIndex={-1} className="relative overflow-hidden focus:outline-none">
         <section className="relative min-h-svh border-b border-border">
@@ -27,7 +29,7 @@ export default function Home() {
           <div className="pointer-events-none absolute -left-48 top-1/4 size-[520px] rounded-full bg-primary/8 blur-[140px]" />
 
           <div className="relative mx-auto grid min-h-svh max-w-[1440px] grid-cols-1 items-center gap-12 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-12 lg:px-16 lg:pb-10 lg:pt-24">
-            <div className="lg:col-span-7">
+            <div data-reveal data-reveal-direction="left" className="lg:col-span-7">
               <div className="mb-9 flex items-center gap-4">
                 <span className="h-px w-10 bg-primary" />
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-300">
@@ -69,7 +71,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative lg:col-span-5">
+            <div data-reveal data-reveal-direction="right" data-reveal-delay="1" className="relative lg:col-span-5">
               <MidnightLily />
             </div>
 
@@ -85,6 +87,8 @@ export default function Home() {
             {principles.map(([index, title, description], position) => (
               <article
                 key={title}
+                data-reveal
+                data-reveal-delay={String(position)}
                 className={`min-h-56 px-5 py-10 sm:px-8 lg:px-10 ${
                   position > 0 ? "border-t border-border lg:border-l lg:border-t-0" : ""
                 }`}
@@ -99,7 +103,7 @@ export default function Home() {
 
         <section id="about" className="scroll-mt-20 border-b border-border">
           <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-            <div className="grid gap-14 lg:grid-cols-12">
+            <div data-reveal className="grid gap-14 lg:grid-cols-12">
               <div className="lg:col-span-4">
                 <p className="section-label">01 / About</p>
               </div>

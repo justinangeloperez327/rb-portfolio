@@ -21,7 +21,7 @@ export function ArchiveSection() {
   return (
     <section id="archive" className="scroll-mt-20 border-b border-border">
       <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-        <div className="grid gap-14 lg:grid-cols-12">
+        <div data-reveal className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="section-label">04 / Archive</p>
           </div>
@@ -41,7 +41,7 @@ export function ArchiveSection() {
           </div>
         </div>
 
-        <div className="mt-16 grid border-t border-border lg:grid-cols-12">
+        <div data-reveal data-reveal-delay="1" className="mt-16 grid border-t border-border lg:grid-cols-12">
           <article className="relative overflow-hidden border-b border-border py-10 lg:col-span-5 lg:border-b-0 lg:border-r lg:py-12 lg:pr-10">
             <div className="absolute -right-8 top-6 size-48 rounded-full bg-primary/8 blur-3xl" />
 
