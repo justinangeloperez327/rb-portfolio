@@ -1,6 +1,8 @@
-import { BriefcaseBusiness, Code2, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, BriefcaseBusiness, Code2, ShieldCheck } from "lucide-react";
 
 import { portfolioContent, type ProjectIconKey } from "@/content/portfolio";
+import { getPublishedProjects } from "@/lib/projects";
 
 const projectIcons: Record<ProjectIconKey, typeof BriefcaseBusiness> = {
   professional: BriefcaseBusiness,
@@ -9,6 +11,7 @@ const projectIcons: Record<ProjectIconKey, typeof BriefcaseBusiness> = {
 
 export function ProjectsSection() {
   const { projects } = portfolioContent;
+  const publishedProjects = getPublishedProjects();
 
   return (
     <section id="projects" className="scroll-mt-20 border-b border-border">
@@ -88,6 +91,52 @@ export function ProjectsSection() {
             );
           })}
         </div>
+
+        {publishedProjects.length > 0 && (
+          <div className="border-t border-border py-10 lg:py-12">
+            <div className="grid gap-8 lg:grid-cols-12">
+              <div className="lg:col-span-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
+                  Published case studies
+                </p>
+              </div>
+
+              <div className="lg:col-span-8">
+                <div className="border-t border-border">
+                  {publishedProjects.map((project, index) => {
+                    const Icon = projectIcons[project.track];
+
+                    return (
+                      <Link
+                        key={project.slug}
+                        href={`/projects/${project.slug}`}
+                        className="group grid gap-5 border-b border-border py-7 transition-colors hover:bg-primary/[0.035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:grid-cols-[44px_1fr_auto] sm:items-center"
+                      >
+                        <span className="font-mono text-[10px] tracking-[0.16em] text-primary">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <div className="flex min-w-0 items-start gap-4">
+                          <Icon className="mt-1 size-4 shrink-0 text-blue-300" aria-hidden="true" />
+                          <div className="min-w-0">
+                            <h3 className="text-xl tracking-[-0.03em] text-foreground sm:text-2xl">
+                              {project.title}
+                            </h3>
+                            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+                              {project.subtitle}
+                            </p>
+                          </div>
+                        </div>
+
+                        <ArrowUpRight className="ml-11 size-4 text-muted-foreground transition-[color,transform] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-300 sm:ml-0" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="grid border-t border-border py-10 lg:grid-cols-12 lg:py-12">
           <div className="lg:col-span-4">

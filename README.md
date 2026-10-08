@@ -48,3 +48,15 @@ NEXT_PUBLIC_SITE_URL=https://example.com
 ```
 
 The app deliberately omits canonical URL and sitemap entries until this value is configured.
+
+
+## Portfolio content
+
+Editable portfolio content lives in `content/portfolio.ts`.
+
+Project entries use a publication status:
+
+- `draft` — stored in content but not linked, generated, or indexed.
+- `published` — appears in the Projects section and generates `/projects/[slug]`.
+
+A published project should include a unique slug, title, subtitle, track, tags, and completed context/role/approach/outcome fields.
