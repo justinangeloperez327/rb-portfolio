@@ -4,13 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-const navigation = [
-  { label: "About", href: "#about", id: "about", index: "01" },
-  { label: "Experience", href: "#experience", id: "experience", index: "02" },
-  { label: "Projects", href: "#projects", id: "projects", index: "03" },
-  { label: "Archive", href: "#archive", id: "archive", index: "04" },
-  { label: "Contact", href: "#contact", id: "contact", index: "05" },
-];
+import { portfolioContent } from "@/content/portfolio";
+
+const navigation = portfolioContent.navigation;
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -145,13 +141,13 @@ export function SiteHeader() {
             href="#top"
             onClick={closeMenu}
             className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            aria-label="Ruth Berlie Perez — home"
+            aria-label={`${portfolioContent.identity.name} — home`}
           >
             <span className="grid size-9 place-items-center border border-border bg-background font-mono text-[11px] font-medium tracking-[0.18em] text-foreground transition-[border-color,background-color] duration-200 group-hover:border-primary/70 group-hover:bg-primary/[0.05]">
-              RBP
+              {portfolioContent.identity.shortName}
             </span>
             <span className="hidden text-sm font-medium tracking-tight text-foreground/90 sm:inline">
-              Ruth Berlie Perez
+              {portfolioContent.identity.name}
             </span>
           </Link>
 
@@ -256,7 +252,7 @@ export function SiteHeader() {
               RBP / Portfolio
             </p>
             <p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">
-              Procurement × Technology × Systems
+              {portfolioContent.identity.positioning}
             </p>
           </div>
         </nav>

@@ -9,12 +9,7 @@ import { MidnightLily } from "@/components/midnight-lily";
 import { MotionController } from "@/components/motion-controller";
 import { ProjectsSection } from "@/components/projects-section";
 import { SiteHeader } from "@/components/site-header";
-
-const principles = [
-  ["01", "Procurement", "Commercial judgment, sourcing, negotiation, and structured decision-making."],
-  ["02", "Technology", "A Computer Science foundation with a practical interest in systems and software."],
-  ["03", "Creative", "Music, film, anime, and design as a quieter layer behind the professional work."],
-];
+import { portfolioContent } from "@/content/portfolio";
 
 export default function Home() {
   return (
@@ -33,23 +28,22 @@ export default function Home() {
               <div className="mb-9 flex items-center gap-4">
                 <span className="h-px w-10 bg-primary" />
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-blue-300">
-                  Procurement / Technology / Systems
+                  {portfolioContent.identity.heroKicker}
                 </p>
               </div>
 
               <h1 className="max-w-5xl text-[clamp(3.4rem,8vw,8.75rem)] font-medium leading-[0.82] tracking-[-0.065em] text-foreground">
-                Ruth Berlie
-                <span className="block text-foreground/46">Perez.</span>
+                {portfolioContent.identity.firstName} {portfolioContent.identity.middleName}
+                <span className="block text-foreground/46">{portfolioContent.identity.lastName}.</span>
               </h1>
 
               <div className="mt-10 grid max-w-3xl gap-8 border-t border-border pt-7 sm:grid-cols-[1.15fr_1fr]">
                 <p className="text-xl leading-relaxed tracking-[-0.02em] text-foreground sm:text-2xl">
-                  Procurement Manager
-                  <span className="block text-muted-foreground">× Computer Science Graduate</span>
+                  {portfolioContent.identity.role}
+                  <span className="block text-muted-foreground">× {portfolioContent.identity.education}</span>
                 </p>
                 <p className="max-w-md text-sm leading-6 text-muted-foreground sm:text-base">
-                  Working across procurement, technology, systems, and problem-solving with a balance of
-                  commercial discipline and technical curiosity.
+                  {portfolioContent.identity.heroDescription}
                 </p>
               </div>
 
@@ -84,18 +78,18 @@ export default function Home() {
 
         <section className="border-b border-border">
           <div className="mx-auto grid max-w-[1440px] lg:grid-cols-3">
-            {principles.map(([index, title, description], position) => (
+            {portfolioContent.principles.map((principle, position) => (
               <article
-                key={title}
+                key={principle.title}
                 data-reveal
                 data-reveal-delay={String(position)}
                 className={`min-h-56 px-5 py-10 sm:px-8 lg:px-10 ${
                   position > 0 ? "border-t border-border lg:border-l lg:border-t-0" : ""
                 }`}
               >
-                <p className="font-mono text-[10px] tracking-[0.2em] text-primary">{index}</p>
-                <h2 className="mt-10 text-2xl tracking-[-0.03em]">{title}</h2>
-                <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">{description}</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] text-primary">{principle.index}</p>
+                <h2 className="mt-10 text-2xl tracking-[-0.03em]">{principle.title}</h2>
+                <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">{principle.description}</p>
               </article>
             ))}
           </div>
@@ -105,26 +99,21 @@ export default function Home() {
           <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
             <div data-reveal className="grid gap-14 lg:grid-cols-12">
               <div className="lg:col-span-4">
-                <p className="section-label">01 / About</p>
+                <p className="section-label">{portfolioContent.about.eyebrow}</p>
               </div>
               <div className="lg:col-span-8">
                 <h2 className="max-w-4xl text-4xl leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                  Commercial thinking,
-                  <span className="text-muted-foreground">
-                    {" "}
-                    technical foundation, creative perspective.
-                  </span>
+                  {portfolioContent.about.headingLead}
+                  <span className="text-muted-foreground"> {portfolioContent.about.headingMuted}</span>
                 </h2>
-                <p className="mt-8 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                  Ruth works at the intersection of procurement and technology. Her current professional
-                  focus is procurement management, supported by a Computer Science background that shapes
-                  how she approaches systems, information, process, and problem-solving.
-                </p>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                  The result is a profile that is commercially grounded but comfortable with technical
-                  conversations—useful when requirements, suppliers, systems, and business decisions need
-                  to meet in the same room.
-                </p>
+                {portfolioContent.about.paragraphs.map((paragraph, index) => (
+                  <p
+                    key={paragraph}
+                    className={`${index === 0 ? "mt-8" : "mt-5"} max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
 

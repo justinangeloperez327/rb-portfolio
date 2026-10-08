@@ -1,19 +1,11 @@
+import { portfolioContent } from "@/content/portfolio";
+
 export const profile = {
-  name: "Ruth Berlie Perez",
-  shortName: "RBP",
-  role: "Procurement Manager",
-  education: "Computer Science Graduate",
-  positioning: "Procurement × Technology × Systems",
-  description:
-    "Portfolio of Ruth Berlie Perez — Procurement Manager and Computer Science graduate working across procurement, technology, systems, and problem-solving.",
-  keywords: [
-    "Ruth Berlie Perez",
-    "Procurement Manager",
-    "Procurement",
-    "Commercial Operations",
-    "Computer Science",
-    "Technology",
-    "Systems",
-    "Portfolio",
-  ],
+  name: portfolioContent.identity.name,
+  shortName: portfolioContent.identity.shortName,
+  role: portfolioContent.identity.role,
+  education: portfolioContent.identity.education,
+  positioning: portfolioContent.identity.positioning,
+  description: portfolioContent.identity.description,
+  keywords: portfolioContent.identity.keywords,
 } as const;

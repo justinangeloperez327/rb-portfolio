@@ -1,36 +1,8 @@
-const capabilityGroups = [
-  {
-    index: "A",
-    title: "Commercial",
-    items: [
-      "Strategic sourcing",
-      "Supplier management",
-      "Commercial negotiation",
-      "Tendering & evaluation",
-      "Contract coordination",
-    ],
-  },
-  {
-    index: "B",
-    title: "Systems",
-    items: [
-      "Structured problem-solving",
-      "Process thinking",
-      "Requirements awareness",
-      "Technology fluency",
-      "Cross-functional coordination",
-    ],
-  },
-];
-
-const profileFacts = [
-  ["Current role", "Procurement Manager"],
-  ["Discipline", "Procurement & Commercial"],
-  ["Academic foundation", "Computer Science"],
-  ["Working approach", "Structured / analytical / practical"],
-];
+import { portfolioContent } from "@/content/portfolio";
 
 export function AboutProfile() {
+  const { about } = portfolioContent;
+
   return (
     <div className="mt-16 border-t border-border">
       <div className="grid lg:grid-cols-12">
@@ -40,15 +12,15 @@ export function AboutProfile() {
           </p>
 
           <dl className="mt-8">
-            {profileFacts.map(([label, value]) => (
+            {about.profileFacts.map((fact) => (
               <div
-                key={label}
+                key={fact.label}
                 className="grid gap-2 border-t border-border py-5 first:border-t-0 sm:grid-cols-[150px_1fr]"
               >
                 <dt className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                  {label}
+                  {fact.label}
                 </dt>
-                <dd className="text-sm leading-6 text-foreground sm:text-base">{value}</dd>
+                <dd className="text-sm leading-6 text-foreground sm:text-base">{fact.value}</dd>
               </div>
             ))}
           </dl>
@@ -60,18 +32,16 @@ export function AboutProfile() {
           </p>
 
           <p className="mt-8 max-w-2xl text-xl leading-8 tracking-[-0.02em] text-foreground sm:text-2xl sm:leading-9">
-            A procurement professional who brings a technical way of thinking to commercial work.
+            {about.profileStatement}
           </p>
           <p className="mt-5 max-w-2xl leading-7 text-muted-foreground">
-            The focus is not technology for its own sake. It is using structure, logic, and systems
-            thinking to understand requirements, compare options, manage commercial decisions, and
-            coordinate work clearly across people and suppliers.
+            {about.profileDescription}
           </p>
         </div>
       </div>
 
       <div className="grid border-t border-border lg:grid-cols-2">
-        {capabilityGroups.map((group, position) => (
+        {about.capabilityGroups.map((group, position) => (
           <div
             key={group.title}
             className={`py-8 lg:py-10 ${
@@ -105,14 +75,13 @@ export function AboutProfile() {
         <div className="mt-6 sm:mt-0">
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
             <div>
-              <h3 className="text-2xl tracking-[-0.03em]">Computer Science</h3>
+              <h3 className="text-2xl tracking-[-0.03em]">{about.education.field}</h3>
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                Graduate
+                {about.education.level}
               </p>
             </div>
             <p className="max-w-md text-sm leading-6 text-muted-foreground">
-              A technical foundation in computing, software, logic, and systems that continues to
-              influence how Ruth approaches operational and commercial problems.
+              {about.education.description}
             </p>
           </div>
         </div>

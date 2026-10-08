@@ -1,29 +1,16 @@
 import { Clapperboard, Flower2, Headphones, Music2 } from "lucide-react";
 
-const screenList = [
-  "Marvel movies",
-  "Demon Slayer",
-  "Attack on Titan",
-  "Tokyo Ghoul",
-  "Frieren",
-];
-
-const artists = [
-  ["01", "Avril Lavigne"],
-  ["02", "Coldplay"],
-  ["03", "Linkin Park", "Emily Armstrong era"],
-  ["04", "Paramore"],
-];
-
-const instruments = ["Guitar", "Drums", "Keyboard"];
+import { portfolioContent } from "@/content/portfolio";
 
 export function ArchiveSection() {
+  const { archive } = portfolioContent;
+
   return (
     <section id="archive" className="scroll-mt-20 border-b border-border">
       <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
         <div data-reveal className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="section-label">04 / Archive</p>
+            <p className="section-label">{archive.eyebrow}</p>
           </div>
 
           <div className="lg:col-span-8">
@@ -31,12 +18,11 @@ export function ArchiveSection() {
               Off duty / personal index
             </p>
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              The things that shape the
-              <span className="text-muted-foreground"> quieter side of the profile.</span>
+              {archive.headingLead}
+              <span className="text-muted-foreground"> {archive.headingMuted}</span>
             </h2>
             <p className="mt-8 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Music, stories, and instruments sit behind the professional work as a more personal layer.
-              They are presented here as references and influences—not as the main identity of the site.
+              {archive.introduction}
             </p>
           </div>
         </div>
@@ -54,18 +40,17 @@ export function ArchiveSection() {
 
             <div className="relative mt-16">
               <p className="text-[clamp(4.5rem,11vw,8rem)] font-medium leading-none tracking-[-0.07em] text-foreground">
-                Lily.
+                {archive.flower.name}.
               </p>
               <p className="mt-6 max-w-sm text-sm leading-6 text-muted-foreground">
-                Ruth&apos;s favorite flower and the visual motif behind the Midnight Lily identity used
-                throughout the portfolio.
+                {archive.flower.description}
               </p>
             </div>
 
             <div className="relative mt-12 flex items-center gap-4">
               <span className="h-px flex-1 bg-border" />
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-blue-300">
-                calm / precise / personal
+                {archive.flower.qualities.join(" / ")}
               </span>
             </div>
           </article>
@@ -79,14 +64,12 @@ export function ArchiveSection() {
             </div>
 
             <div className="mt-10 border-t border-border">
-              {screenList.map((title, index) => (
+              {archive.watching.map((title, index) => (
                 <div
                   key={title}
                   className="group grid min-h-16 grid-cols-[44px_1fr_auto] items-center border-b border-border transition-colors hover:bg-primary/[0.035]"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">
-                    0{index + 1}
-                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">0{index + 1}</span>
                   <span className="text-lg tracking-[-0.02em] text-foreground transition-transform duration-200 group-hover:translate-x-1">
                     {title}
                   </span>
@@ -109,18 +92,18 @@ export function ArchiveSection() {
             </div>
 
             <div className="mt-10 border-t border-border">
-              {artists.map(([index, artist, note]) => (
+              {archive.artists.map((artist) => (
                 <div
-                  key={artist}
+                  key={artist.name}
                   className="group grid min-h-20 grid-cols-[44px_1fr] items-center border-b border-border transition-colors hover:bg-primary/[0.035] sm:grid-cols-[44px_1fr_auto]"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{index}</span>
+                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{artist.index}</span>
                   <span className="text-xl tracking-[-0.025em] text-foreground transition-transform duration-200 group-hover:translate-x-1 sm:text-2xl">
-                    {artist}
+                    {artist.name}
                   </span>
-                  {note ? (
+                  {artist.note ? (
                     <span className="col-start-2 pb-4 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground sm:col-start-auto sm:pb-0">
-                      {note}
+                      {artist.note}
                     </span>
                   ) : (
                     <span className="hidden font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground sm:block">
@@ -146,15 +129,13 @@ export function ArchiveSection() {
             </p>
 
             <div className="mt-10 border-t border-border">
-              {instruments.map((instrument, index) => (
+              {archive.instruments.map((instrument, index) => (
                 <div
                   key={instrument}
                   className="flex min-h-16 items-center justify-between border-b border-border"
                 >
                   <span className="text-lg tracking-[-0.02em]">{instrument}</span>
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">
-                    0{index + 1}
-                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">0{index + 1}</span>
                 </div>
               ))}
             </div>
@@ -167,9 +148,7 @@ export function ArchiveSection() {
               Design principle
             </p>
             <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-              These references influence atmosphere, pacing, and visual taste. The site deliberately avoids
-              character art, movie posters, album covers, or imitation interfaces so Ruth&apos;s own identity
-              stays stronger than the media she enjoys.
+              {archive.designPrinciple}
             </p>
           </div>
         </div>

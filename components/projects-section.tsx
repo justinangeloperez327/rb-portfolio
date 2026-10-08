@@ -1,40 +1,21 @@
 import { BriefcaseBusiness, Code2, ShieldCheck } from "lucide-react";
 
-const workTracks = [
-  {
-    index: "A",
-    label: "Professional",
-    title: "Procurement case studies",
-    description:
-      "Selected professional work will focus on the decision, Ruth’s responsibility, the commercial approach, and the measurable result—without exposing confidential client or supplier information.",
-    tags: ["Sourcing", "Evaluation", "Negotiation", "Supplier management", "Contracts"],
-    icon: BriefcaseBusiness,
-  },
-  {
-    index: "B",
-    label: "Technical",
-    title: "Software & systems work",
-    description:
-      "Technical projects will be presented separately from Ruth’s procurement career so the portfolio can show her Computer Science background without implying that software engineering is her current professional role.",
-    tags: ["Software", "Systems", "Problem-solving", "Computer Science"],
-    icon: Code2,
-  },
-];
+import { portfolioContent, type ProjectIconKey } from "@/content/portfolio";
 
-const caseStudyStructure = [
-  ["01", "Context", "What needed to be solved and why it mattered."],
-  ["02", "Role", "What Ruth was responsible for in the work."],
-  ["03", "Approach", "How the decision, process, or solution was structured."],
-  ["04", "Outcome", "The verified result, metric, or lesson that followed."],
-];
+const projectIcons: Record<ProjectIconKey, typeof BriefcaseBusiness> = {
+  professional: BriefcaseBusiness,
+  technical: Code2,
+};
 
 export function ProjectsSection() {
+  const { projects } = portfolioContent;
+
   return (
     <section id="projects" className="scroll-mt-20 border-b border-border">
       <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
         <div data-reveal className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="section-label">03 / Projects</p>
+            <p className="section-label">{projects.eyebrow}</p>
           </div>
 
           <div className="lg:col-span-8">
@@ -42,20 +23,18 @@ export function ProjectsSection() {
               Selected work / two tracks
             </p>
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              Professional work and
-              <span className="text-muted-foreground"> technical work stay distinct.</span>
+              {projects.headingLead}
+              <span className="text-muted-foreground"> {projects.headingMuted}</span>
             </h2>
             <p className="mt-8 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              The portfolio separates procurement case studies from software and systems projects. That
-              keeps Ruth&apos;s current role clear while still giving her technical background meaningful
-              space.
+              {projects.introduction}
             </p>
           </div>
         </div>
 
         <div data-reveal data-reveal-delay="1" className="mt-16 grid border-t border-border lg:grid-cols-2">
-          {workTracks.map((track, position) => {
-            const Icon = track.icon;
+          {projects.tracks.map((track, position) => {
+            const Icon = projectIcons[track.icon];
 
             return (
               <article
@@ -100,7 +79,7 @@ export function ProjectsSection() {
                         Publication status
                       </span>
                       <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-blue-300">
-                        Being curated
+                        {track.status}
                       </span>
                     </div>
                   </div>
@@ -122,14 +101,14 @@ export function ProjectsSection() {
 
           <div className="mt-8 lg:col-span-8 lg:mt-0">
             <div className="border-t border-border">
-              {caseStudyStructure.map(([index, title, description]) => (
+              {projects.caseStudyStructure.map((item) => (
                 <div
-                  key={title}
+                  key={item.title}
                   className="grid gap-3 border-b border-border py-6 sm:grid-cols-[44px_130px_1fr] sm:items-start"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{index}</span>
-                  <h3 className="text-sm font-medium text-foreground">{title}</h3>
-                  <p className="max-w-xl text-sm leading-6 text-muted-foreground">{description}</p>
+                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{item.index}</span>
+                  <h3 className="text-sm font-medium text-foreground">{item.title}</h3>
+                  <p className="max-w-xl text-sm leading-6 text-muted-foreground">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -146,9 +125,7 @@ export function ProjectsSection() {
                 Confidentiality first
               </p>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
-                Procurement examples can be anonymized where necessary. Client names, supplier names,
-                pricing, contract terms, and internal data should only appear when they are appropriate to
-                publish. The value of a case study is the reasoning and verified outcome—not sensitive data.
+                {projects.confidentialityNote}
               </p>
             </div>
           </div>
