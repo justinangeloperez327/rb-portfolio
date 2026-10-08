@@ -60,3 +60,14 @@ Project entries use a publication status:
 - `published` — appears in the Projects section and generates `/projects/[slug]`.
 
 A published project should include a unique slug, title, subtitle, track, tags, and completed context/role/approach/outcome fields.
+
+
+## Content validation
+
+Run the same publication checks used by CI:
+
+```bash
+npm run validate:content
+```
+
+Validation rejects duplicate or malformed project slugs, incomplete published case studies, invalid contact links, malformed optional dates, duplicate keywords, broken navigation anchors, and invalid `NEXT_PUBLIC_SITE_URL` values.
