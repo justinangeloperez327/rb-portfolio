@@ -6,7 +6,7 @@ Portfolio project built with the current Next.js App Router stack.
 
 - Next.js 16.4
 - React 19.3
-- TypeScript 7
+- TypeScript 6
 - Tailwind CSS 4.3
 - shadcn/ui CLI 4.21
 - ESLint 10
@@ -37,3 +37,14 @@ Add components with:
 ```bash
 npx shadcn@latest add card
 ```
+
+
+## Environment
+
+Create a local `.env.local` only when you have a public canonical URL:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://example.com
+```
+
+The app deliberately omits canonical URL and sitemap entries until this value is configured.
