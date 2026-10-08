@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "validate:content": "node scripts/validate-content.mjs"
+    "validate:content": "node scripts/validate-content.mjs",
+    "release:check": "npm run validate:content && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.4.0",
