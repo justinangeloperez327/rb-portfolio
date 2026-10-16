@@ -176,7 +176,7 @@ export function SiteHeader({
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
-            {navigation.slice(0, -1).map((item) => {
+            {navigation.filter((item) => item.id !== "contact").map((item) => {
               const active = activeSection === item.id;
 
               return (
@@ -201,7 +201,7 @@ export function SiteHeader({
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
+            {navigation.some((item) => item.id === "contact") && <Link
               href="#contact"
               aria-current={activeSection === "contact" ? "location" : undefined}
               className={`rounded-md hidden min-h-11 items-center border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition-[border-color,background-color,color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:inline-flex ${
@@ -210,8 +210,8 @@ export function SiteHeader({
                   : "border-border bg-background text-foreground hover:border-primary/60 hover:bg-primary/10"
               }`}
             >
-              Let&apos;s talk
-            </Link>
+              Contact
+            </Link>}
 
             <button
               ref={menuButtonRef}

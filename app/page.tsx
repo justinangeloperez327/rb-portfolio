@@ -1,113 +1,113 @@
 import Link from "next/link";
-import { ArrowDownRight } from "lucide-react";
-
-import { AboutProfile } from "@/components/about-profile";
-import { ArchiveSection } from "@/components/archive-section";
-import { ContactSection } from "@/components/contact-section";
-import { ExperienceSection } from "@/components/experience-section";
-import { MidnightLily } from "@/components/midnight-lily";
-import { MotionController } from "@/components/motion-controller";
-import { ProjectsSection } from "@/components/projects-section";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
+import { MidnightLily } from "@/components/midnight-lily";
 import { portfolioContent } from "@/content/portfolio";
+import { getPublishedProjects } from "@/lib/projects";
 
 export default function Home() {
+  const { identity, about, experience, contact } = portfolioContent;
+  const projects = getPublishedProjects();
+  const channels = contact.channels.filter((channel) => channel.href);
+  const navigation = portfolioContent.navigation.filter((item) =>
+    item.id === "about" || item.id === "experience" ||
+    (item.id === "projects" && projects.length > 0) ||
+    (item.id === "contact" && channels.length > 0)
+  );
+  const achievements = experience.impact.filter((item) => item.value?.trim());
+
   return (
     <>
       <div id="top" aria-hidden="true" />
-      <SiteHeader
-        name={portfolioContent.identity.name}
-        shortName={portfolioContent.identity.shortName}
-        positioning={portfolioContent.identity.positioning}
-        navigation={portfolioContent.navigation}
-      />
-      <MotionController />
-
-      <main id="main-content" tabIndex={-1} className="relative overflow-hidden focus:outline-none">
-        <section className="portfolio-hero" aria-labelledby="hero-heading">
-          <div className="hero-layout">
-            <div className="hero-copy">
-              <p className="hero-eyebrow">{portfolioContent.identity.heroKicker}</p>
-              <h1 id="hero-heading" className="hero-name">
-                {portfolioContent.identity.firstName} {portfolioContent.identity.middleName}
-                <span>{portfolioContent.identity.lastName}.</span>
-              </h1>
-              <p className="hero-role">{portfolioContent.identity.role}</p>
-              <p className="hero-description">{portfolioContent.identity.heroDescription}</p>
-              <div className="hero-actions">
-                <Link href="#experience" className="portfolio-button portfolio-button-primary">
-                  Explore my experience <ArrowDownRight className="size-4" aria-hidden="true" />
-                </Link>
-                <Link href="#about" className="portfolio-button portfolio-button-secondary">
-                  Meet Ruth <ArrowDownRight className="size-4" aria-hidden="true" />
-                </Link>
-              </div>
-              <div className="hero-foundation">
-                <span>Academic foundation</span>
-                <p>{portfolioContent.identity.education}</p>
-              </div>
-            </div>
-            <div className="hero-artwork" aria-hidden="true">
-              <div className="hero-artwork-caption" aria-hidden="true">
-                <span>Ruth Berlie Perez</span><span>Midnight Lily</span>
-              </div>
-              <MidnightLily />
-              <p className="hero-artwork-note">Clarity in requirements.<br />Confidence in decisions.</p>
-            </div>
+      <SiteHeader name={identity.name} shortName={identity.shortName}
+        positioning={identity.role} navigation={navigation} />
+      <main id="main-content" tabIndex={-1} className="blue-main">
+        <section className="blue-hero blue-container" aria-labelledby="intro-title">
+          <div>
+            <p className="blue-eyebrow">{identity.role}</p>
+            <h1 id="intro-title">{identity.firstName} {identity.middleName}<br />{identity.lastName}<span className="text-blue-300">.</span></h1>
+            <p className="blue-summary">Connecting business requirements with suppliers, commercial decisions, and clear follow-through.</p>
+            <Link href="#experience" className="portfolio-button portfolio-button-primary">
+              View experience <ArrowDownRight className="size-4" aria-hidden="true" />
+            </Link>
+            <p className="blue-education">{identity.education}</p>
           </div>
+          <div className="blue-signature" aria-hidden="true"><MidnightLily /></div>
         </section>
 
-        <section className="border-b border-border">
-          <div className="portfolio-card-grid mx-auto max-w-[1440px] px-5 py-8 sm:px-8 lg:grid-cols-3 lg:px-16">
-            {portfolioContent.principles.map((principle, position) => (
-              <article
-                key={principle.title}
-                data-reveal
-                data-reveal-delay={String(position)}
-                className="border-l-2 border-primary/60 px-5 py-3"
-              >
-                
-                <h2 className="text-xl tracking-[-0.03em]">{principle.title}</h2>
-                <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">{principle.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="about" className="scroll-mt-20 border-b border-border">
-          <div className="mx-auto max-w-[1440px] px-5 py-28 sm:px-8 lg:px-16 lg:py-40">
-            <div data-reveal className="grid gap-14 lg:grid-cols-12">
-              <div className="lg:col-span-4">
-                <p className="section-label">{portfolioContent.about.eyebrow}</p>
-              </div>
-              <div className="lg:col-span-8">
-                <h2 className="max-w-4xl text-4xl leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                  {portfolioContent.about.headingLead}
-                  <span className="text-muted-foreground"> {portfolioContent.about.headingMuted}</span>
-                </h2>
-                {portfolioContent.about.paragraphs.map((paragraph, index) => (
-                  <p
-                    key={paragraph}
-                    className={`${index === 0 ? "mt-8" : "mt-5"} max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg`}
-                  >
-                    {paragraph}
-                  </p>
+        <section id="about" className="blue-section">
+          <div className="blue-container blue-section-layout">
+            <h2>About</h2>
+            <div>
+              <p className="blue-lead">Commercial judgment.<br /><span className="text-muted-foreground">A technical way of thinking.</span></p>
+              <p className="blue-body">Ruth is a Procurement Manager and Computer Science graduate. Her work brings structure to requirements, supplier coordination, and commercial decisions.</p>
+              <div className="blue-capabilities">
+                {about.capabilityGroups.map((group) => (
+                  <div key={group.title}>
+                    <h3>{group.title === "Systems" ? "Technical foundation" : "Procurement capabilities"}</h3>
+                    <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+                  </div>
                 ))}
               </div>
             </div>
-
-            <AboutProfile />
           </div>
         </section>
 
-        <ExperienceSection />
+        <section id="experience" className="blue-section">
+          <div className="blue-container blue-section-layout">
+            <h2>Experience</h2>
+            <div>
+              <div className="blue-role-heading"><h3>{experience.currentRole.title}</h3><span>Current role</span></div>
+              <p className="blue-body">Sourcing, commercial evaluation, supplier engagement, contract coordination, and purchasing follow-up.</p>
+              <div className="blue-responsibilities">
+                {experience.responsibilityGroups.map((group) => (
+                  <article key={group.title}>
+                    <h4>{group.title}</h4>
+                    <p>{group.description}</p>
+                  </article>
+                ))}
+              </div>
+              {achievements.length > 0 && (
+                <dl className="blue-achievements">{achievements.map((item) => (
+                  <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>
+                ))}</dl>
+              )}
+            </div>
+          </div>
+        </section>
 
-        <ProjectsSection />
+        {projects.length > 0 && (
+          <section id="projects" className="blue-section">
+            <div className="blue-container blue-section-layout">
+              <h2>Selected work</h2>
+              <div className="blue-work-list">{projects.map((project) => (
+                <Link key={project.slug} href={`/projects/${project.slug}`} className="portfolio-link-card blue-work-link">
+                  <div><h3>{project.title}</h3><p>{project.subtitle}</p></div>
+                  <ArrowUpRight className="size-5 shrink-0" aria-hidden="true" />
+                </Link>
+              ))}</div>
+            </div>
+          </section>
+        )}
 
-        <ArchiveSection />
-
-        <ContactSection />
+        {channels.length > 0 && (
+          <section id="contact" className="blue-section">
+            <div className="blue-container blue-section-layout">
+              <h2>Contact</h2>
+              <div><p className="blue-lead">Start a conversation.</p>
+                <div className="blue-contact-links">{channels.map((channel) => (
+                  <Link key={channel.label} href={channel.href!} className="portfolio-button portfolio-button-secondary">
+                    {channel.label}<ArrowUpRight className="size-4" aria-hidden="true" />
+                  </Link>
+                ))}</div>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
+      <footer className="blue-footer blue-container"><p>{identity.name} · {identity.role}</p>
+        <Link href="#top" className="blue-top-link">Back to top <ArrowUpRight className="size-4" aria-hidden="true" /></Link>
+      </footer>
     </>
   );
 }

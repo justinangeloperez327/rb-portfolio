@@ -72,12 +72,7 @@ export function MidnightLily() {
         </g>
       </svg>
 
-      <div className="absolute right-[4%] top-[17%] font-mono text-[10px] uppercase tracking-[0.22em] text-blue-200">
-        midnight / lily
-      </div>
-      <div className="absolute bottom-[11%] left-[5%] font-mono text-[10px] uppercase tracking-[0.22em] text-blue-200">
-        structure / instinct
-      </div>
+
     </div>
   );
 }
