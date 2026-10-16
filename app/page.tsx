@@ -11,8 +11,7 @@ export default function Home() {
   const channels = contact.channels.filter((channel) => channel.href);
   const navigation = portfolioContent.navigation.filter((item) =>
     item.id === "about" || item.id === "experience" ||
-    (item.id === "projects" && projects.length > 0) ||
-    (item.id === "contact" && channels.length > 0)
+    item.id === "projects" || item.id === "contact"
   );
   const achievements = experience.impact.filter((item) => item.value?.trim());
 
@@ -76,11 +75,22 @@ export default function Home() {
           </div>
         </section>
 
-        {projects.length > 0 && (
           <section id="projects" className="blue-section">
             <div className="blue-container blue-section-layout">
               <h2>Selected work</h2>
-              <div className="blue-work-list">{projects.map((project) => (
+              <div className="blue-work-list">
+                {projects.length === 0 && ["Procurement case study", "Systems & process project"].map((title) => (
+                  <article key={title} className="portfolio-link-card">
+                    <p className="blue-eyebrow">Design preview</p>
+                    <h3 className="text-xl">{title}</h3>
+                    <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
+                      {["Project title", "Scope", "Approach", "Outcome"].map((label) => (
+                        <div key={label}><dt className="text-muted-foreground">{label}</dt><dd className="mt-2 text-foreground/70">To be added</dd></div>
+                      ))}
+                    </dl>
+                  </article>
+                ))}
+                {projects.map((project) => (
                 <Link key={project.slug} href={`/projects/${project.slug}`} className="portfolio-link-card blue-work-link">
                   <div><h3>{project.title}</h3><p>{project.subtitle}</p></div>
                   <ArrowUpRight className="size-5 shrink-0" aria-hidden="true" />
@@ -88,14 +98,20 @@ export default function Home() {
               ))}</div>
             </div>
           </section>
-        )}
 
-        {channels.length > 0 && (
           <section id="contact" className="blue-section">
             <div className="blue-container blue-section-layout">
               <h2>Contact</h2>
               <div><p className="blue-lead">Start a conversation.</p>
-                <div className="blue-contact-links">{channels.map((channel) => (
+                <p className="blue-body">For professional conversations about procurement and commercial operations.</p>
+                <div className="blue-contact-links">
+                  {contact.channels.filter((channel) => !channel.href).map((channel) => (
+                    <div key={channel.label} className="portfolio-link-card min-w-0 flex-1 basis-48">
+                      <h3 className="text-base">{channel.label}</h3>
+                      <p className="mt-3 text-sm text-muted-foreground">Contact details to be added</p>
+                    </div>
+                  ))}
+                  {channels.map((channel) => (
                   <Link key={channel.label} href={channel.href!} className="portfolio-button portfolio-button-secondary">
                     {channel.label}<ArrowUpRight className="size-4" aria-hidden="true" />
                   </Link>
@@ -103,7 +119,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-        )}
       </main>
       <footer className="blue-footer blue-container"><p>{identity.name} · {identity.role}</p>
         <Link href="#top" className="blue-top-link">Back to top <ArrowUpRight className="size-4" aria-hidden="true" /></Link>
