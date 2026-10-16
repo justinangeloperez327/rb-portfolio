@@ -160,9 +160,9 @@ export const portfolioContent: PortfolioContent = {
     role: "Procurement Manager",
     education: "Computer Science Graduate",
     positioning: "Procurement × Technology × Systems",
-    heroKicker: "Procurement / Technology / Systems",
+    heroKicker: "Procurement & Commercial Operations",
     heroDescription:
-      "Working across procurement, technology, systems, and problem-solving with a balance of commercial discipline and technical curiosity.",
+      "Connecting requirements, suppliers, and sound commercial decisions—with a technical mindset and a practical approach.",
     description:
       "Portfolio of Ruth Berlie Perez — Procurement Manager and Computer Science graduate working across procurement, technology, systems, and problem-solving.",
     keywords: [
@@ -180,7 +180,7 @@ export const portfolioContent: PortfolioContent = {
     { label: "About", href: "#about", id: "about", index: "01" },
     { label: "Experience", href: "#experience", id: "experience", index: "02" },
     { label: "Projects", href: "#projects", id: "projects", index: "03" },
-    { label: "Archive", href: "#archive", id: "archive", index: "04" },
+    { label: "Interests", href: "#archive", id: "archive", index: "04" },
     { label: "Contact", href: "#contact", id: "contact", index: "05" },
   ],
   principles: [
@@ -191,13 +191,13 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       index: "02",
-      title: "Technology",
-      description: "A Computer Science foundation with a practical interest in systems and software.",
+      title: "Supplier coordination",
+      description: "Clear requirements, supplier communication, and consistent follow-through.",
     },
     {
       index: "03",
-      title: "Creative",
-      description: "Music, film, anime, and design as a quieter layer behind the professional work.",
+      title: "Systems thinking",
+      description: "A Computer Science foundation that supports structured, analytical decisions.",
     },
   ],
   about: {
@@ -343,10 +343,10 @@ export const portfolioContent: PortfolioContent = {
   },
   projects: {
     eyebrow: "03 / Projects",
-    headingLead: "Professional work and",
-    headingMuted: "technical work stay distinct.",
+    headingLead: "Commercial experience.",
+    headingMuted: "Technical curiosity.",
     introduction:
-      "The portfolio separates procurement case studies from software and systems projects. That keeps Ruth's current role clear while still giving her technical background meaningful space.",
+      "Explore the two sides of my work: procurement and commercial decisions, alongside an interest in software and systems.",
     tracks: [
       {
         index: "A",
@@ -380,11 +380,11 @@ export const portfolioContent: PortfolioContent = {
     entries: [],
   },
   archive: {
-    eyebrow: "04 / Archive",
-    headingLead: "The things that shape the",
-    headingMuted: "quieter side of the profile.",
+    eyebrow: "04 / Personal interests",
+    headingLead: "Away from work,",
+    headingMuted: "music and stories.",
     introduction:
-      "Music, stories, and instruments sit behind the professional work as a more personal layer. They are presented here as references and influences—not as the main identity of the site.",
+      "Usually listening to music, finding a new story to get lost in, or spending time with a guitar, drums, or keyboard.",
     flower: {
       name: "Lily",
       description:
@@ -407,7 +407,7 @@ export const portfolioContent: PortfolioContent = {
     headingLead: "Good work usually starts with",
     headingMuted: "a clear conversation.",
     introduction:
-      "For professional conversations around procurement, commercial operations, technology, or systems, Ruth's contact channels can be connected here when the portfolio is ready for publication.",
+      "For conversations about procurement, supplier management, and commercial operations. Contact details will be available soon.",
     conversationAreas: ["Procurement", "Commercial operations", "Technology", "Systems & process"],
     channels: [
       {

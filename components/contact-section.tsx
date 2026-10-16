@@ -40,7 +40,7 @@ export function ContactSection() {
                 {contact.conversationAreas.map((area) => (
                   <span
                     key={area}
-                    className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
+                    className="portfolio-chip border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
                   >
                     {area}
                   </span>
@@ -49,19 +49,19 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div data-reveal data-reveal-delay="1" className="mt-16 border-t border-border">
+          <div data-reveal data-reveal-delay="1" className="portfolio-card-grid mt-12">
             {contact.channels.map((channel, index) => {
               const Icon = contactIcons[channel.icon];
 
               return (
                 <div
                   key={channel.label}
-                  className="grid min-h-24 gap-4 border-b border-border py-5 sm:grid-cols-[44px_1fr_auto] sm:items-center sm:py-0"
+                  className="portfolio-card grid min-h-24 gap-4 sm:grid-cols-[44px_1fr_auto] sm:items-center"
                 >
                   <span className="font-mono text-[10px] tracking-[0.16em] text-primary">0{index + 1}</span>
 
                   <div className="flex items-center gap-4">
-                    <div className="grid size-10 place-items-center border border-border bg-card">
+                    <div className="portfolio-icon grid size-10 place-items-center border border-border bg-card">
                       <Icon className="size-4 text-blue-300" aria-hidden="true" />
                     </div>
                     <div>
@@ -73,7 +73,7 @@ export function ContactSection() {
                   {channel.href ? (
                     <Link
                       href={channel.href}
-                      className="pl-14 font-mono text-[10px] uppercase tracking-[0.16em] text-blue-300 transition-colors hover:text-foreground sm:pl-0"
+                      className="portfolio-button portfolio-button-secondary w-fit font-mono text-[10px] uppercase tracking-[0.16em] text-blue-300 transition-colors hover:text-foreground sm:pl-0"
                     >
                       Open
                     </Link>
@@ -100,7 +100,7 @@ export function ContactSection() {
         <div className="grid gap-8 py-10 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
             <div className="flex items-center gap-4">
-              <span className="grid size-9 place-items-center border border-border font-mono text-[10px] tracking-[0.16em] text-foreground">
+              <span className="portfolio-icon grid size-9 place-items-center border border-border font-mono text-[10px] tracking-[0.16em] text-foreground">
                 {identity.shortName}
               </span>
               <p className="text-sm font-medium text-foreground">{identity.name}</p>
@@ -116,7 +116,7 @@ export function ContactSection() {
 
           <Link
             href="#top"
-            className="inline-flex min-h-11 w-fit items-center gap-3 border border-border px-4 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="portfolio-button inline-flex min-h-11 w-fit items-center gap-3 border border-border px-4 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             Back to top
             <ArrowUp className="size-4" />

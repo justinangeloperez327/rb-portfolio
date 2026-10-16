@@ -35,16 +35,14 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        <div data-reveal data-reveal-delay="1" className="mt-16 grid border-t border-border lg:grid-cols-2">
-          {projects.tracks.map((track, position) => {
+        <div data-reveal data-reveal-delay="1" className="portfolio-card-grid mt-12 lg:grid-cols-2">
+          {projects.tracks.map((track) => {
             const Icon = projectIcons[track.icon];
 
             return (
               <article
                 key={track.title}
-                className={`relative overflow-hidden py-10 lg:min-h-[430px] lg:py-12 ${
-                  position === 1 ? "border-t border-border lg:border-l lg:border-t-0 lg:pl-10" : "lg:pr-10"
-                }`}
+                className="portfolio-card relative overflow-hidden"
               >
                 <div className="pointer-events-none absolute right-0 top-8 font-mono text-[7rem] leading-none tracking-[-0.08em] text-foreground/[0.025] sm:text-[9rem]">
                   {track.index}
@@ -69,7 +67,7 @@ export function ProjectsSection() {
                     {track.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
+                        className="portfolio-chip border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
                       >
                         {tag}
                       </span>
@@ -110,7 +108,7 @@ export function ProjectsSection() {
                       <Link
                         key={project.slug}
                         href={`/projects/${project.slug}`}
-                        className="group grid gap-5 border-b border-border py-7 transition-colors hover:bg-primary/[0.035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:grid-cols-[44px_1fr_auto] sm:items-center"
+                        className="portfolio-link-card group mb-4 grid gap-5 transition-colors hover:bg-primary/[0.035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:grid-cols-[44px_1fr_auto] sm:items-center"
                       >
                         <span className="font-mono text-[10px] tracking-[0.16em] text-primary">
                           {String(index + 1).padStart(2, "0")}
@@ -138,35 +136,9 @@ export function ProjectsSection() {
           </div>
         )}
 
-        <div className="grid border-t border-border py-10 lg:grid-cols-12 lg:py-12">
-          <div className="lg:col-span-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
-              Case study format
-            </p>
-            <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
-              Each published project should be concise, evidence-based, and easy to scan.
-            </p>
-          </div>
-
-          <div className="mt-8 lg:col-span-8 lg:mt-0">
-            <div className="border-t border-border">
-              {projects.caseStudyStructure.map((item) => (
-                <div
-                  key={item.title}
-                  className="grid gap-3 border-b border-border py-6 sm:grid-cols-[44px_130px_1fr] sm:items-start"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{item.index}</span>
-                  <h3 className="text-sm font-medium text-foreground">{item.title}</h3>
-                  <p className="max-w-xl text-sm leading-6 text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         <div className="border-t border-border pt-10">
-          <div className="grid gap-8 bg-card px-5 py-7 sm:px-7 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-8">
-            <div className="grid size-11 place-items-center border border-border bg-background">
+          <div className="portfolio-card grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-8">
+            <div className="portfolio-icon grid size-11 place-items-center border border-border bg-background">
               <ShieldCheck className="size-5 text-blue-300" aria-hidden="true" />
             </div>
             <div>

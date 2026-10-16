@@ -115,7 +115,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <Link
             href="/"
-            className="grid size-9 place-items-center border border-border font-mono text-[10px] tracking-[0.16em] text-foreground transition-colors hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="portfolio-icon grid size-9 place-items-center border border-border font-mono text-[10px] tracking-[0.16em] text-foreground transition-colors hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={`${portfolioContent.identity.name} — home`}
           >
             {portfolioContent.identity.shortName}
@@ -147,7 +147,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
+                    className="portfolio-chip border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
                   >
                     {tag}
                   </span>
@@ -188,7 +188,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </p>
               <Link
                 href="/#projects"
-                className="inline-flex min-h-11 w-fit items-center gap-3 border border-border px-4 text-sm text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="portfolio-button inline-flex min-h-11 w-fit items-center gap-3 border border-border px-4 text-sm text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 View all work
                 <ArrowUpRight className="size-4" />
