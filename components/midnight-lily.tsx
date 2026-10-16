@@ -1,8 +1,7 @@
 export function MidnightLily() {
   return (
     <div className="relative isolate mx-auto aspect-square w-full max-w-[620px]" aria-hidden="true">
-      <div className="absolute inset-[12%] rounded-full bg-primary/10 blur-3xl" />
-      <div className="absolute inset-[22%] rounded-full bg-blue-400/10 blur-2xl" />
+
 
       <svg
         viewBox="0 0 640 640"
@@ -12,9 +11,9 @@ export function MidnightLily() {
       >
         <defs>
           <linearGradient id="lily-stroke" x1="160" y1="90" x2="500" y2="560">
-            <stop offset="0" stopColor="#93C5FD" stopOpacity="0.32" />
-            <stop offset="0.48" stopColor="#3B82F6" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#2563EB" stopOpacity="0.2" />
+            <stop offset="0" stopColor="#93C5FD" stopOpacity="0.8" />
+            <stop offset="0.48" stopColor="#BDD6FF" stopOpacity="0.9" />
+            <stop offset="1" stopColor="#93C5FD" stopOpacity="0.7" />
           </linearGradient>
           <radialGradient id="lily-fill" cx="0" cy="0" r="1" gradientTransform="translate(320 308) rotate(90) scale(220)">
             <stop stopColor="#2563EB" stopOpacity="0.14" />
@@ -22,9 +21,9 @@ export function MidnightLily() {
           </radialGradient>
         </defs>
 
-        <circle cx="320" cy="320" r="232" stroke="#1E293B" strokeDasharray="2 14" />
-        <circle cx="320" cy="320" r="168" stroke="#1E293B" strokeOpacity="0.75" />
-        <path d="M88 320H552M320 88V552" stroke="#1E293B" strokeOpacity="0.5" />
+        <circle cx="320" cy="320" r="232" stroke="#5278B8" strokeDasharray="2 14" />
+        <circle cx="320" cy="320" r="168" stroke="#5278B8" strokeOpacity="0.75" />
+        <path d="M88 320H552M320 88V552" stroke="#5278B8" strokeOpacity="0.5" />
 
         <g className="lily-breathe">
           <ellipse cx="320" cy="310" rx="190" ry="190" fill="url(#lily-fill)" />
@@ -73,10 +72,10 @@ export function MidnightLily() {
         </g>
       </svg>
 
-      <div className="absolute right-[4%] top-[17%] font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
+      <div className="absolute right-[4%] top-[17%] font-mono text-[10px] uppercase tracking-[0.22em] text-blue-200">
         midnight / lily
       </div>
-      <div className="absolute bottom-[11%] left-[5%] font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
+      <div className="absolute bottom-[11%] left-[5%] font-mono text-[10px] uppercase tracking-[0.22em] text-blue-200">
         structure / instinct
       </div>
     </div>

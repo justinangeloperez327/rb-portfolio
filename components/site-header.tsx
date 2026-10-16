@@ -184,7 +184,7 @@ export function SiteHeader({
                   key={item.href}
                   href={item.href}
                   aria-current={active ? "location" : undefined}
-                  className={`group relative py-2 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                  className={`group relative inline-flex min-h-11 items-center py-2 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                     active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -204,7 +204,7 @@ export function SiteHeader({
             <Link
               href="#contact"
               aria-current={activeSection === "contact" ? "location" : undefined}
-              className={`hidden border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition-[border-color,background-color,color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:inline-flex ${
+              className={`hidden min-h-11 items-center border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition-[border-color,background-color,color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:inline-flex ${
                 activeSection === "contact"
                   ? "border-primary/70 bg-primary/10 text-blue-200"
                   : "border-border bg-background text-foreground hover:border-primary/60 hover:bg-primary/10"

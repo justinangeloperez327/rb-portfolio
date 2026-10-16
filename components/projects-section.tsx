@@ -138,32 +138,6 @@ export function ProjectsSection() {
           </div>
         )}
 
-        <div className="grid border-t border-border py-10 lg:grid-cols-12 lg:py-12">
-          <div className="lg:col-span-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
-              Case study format
-            </p>
-            <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
-              Each published project should be concise, evidence-based, and easy to scan.
-            </p>
-          </div>
-
-          <div className="mt-8 lg:col-span-8 lg:mt-0">
-            <div className="border-t border-border">
-              {projects.caseStudyStructure.map((item) => (
-                <div
-                  key={item.title}
-                  className="grid gap-3 border-b border-border py-6 sm:grid-cols-[44px_130px_1fr] sm:items-start"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-primary">{item.index}</span>
-                  <h3 className="text-sm font-medium text-foreground">{item.title}</h3>
-                  <p className="max-w-xl text-sm leading-6 text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         <div className="border-t border-border pt-10">
           <div className="grid gap-8 bg-card px-5 py-7 sm:px-7 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-8">
             <div className="grid size-11 place-items-center border border-border bg-background">
