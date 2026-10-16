@@ -58,15 +58,13 @@ export default function Home() {
         </section>
 
         <section className="border-b border-border">
-          <div className="mx-auto grid max-w-[1440px] lg:grid-cols-3">
+          <div className="portfolio-card-grid mx-auto max-w-[1440px] px-5 py-8 sm:px-8 lg:grid-cols-3 lg:px-16">
             {portfolioContent.principles.map((principle, position) => (
               <article
                 key={principle.title}
                 data-reveal
                 data-reveal-delay={String(position)}
-                className={`px-5 py-8 sm:px-8 lg:px-10 ${
-                  position > 0 ? "border-t border-border lg:border-l lg:border-t-0" : ""
-                }`}
+                className="portfolio-card"
               >
                 <span aria-hidden="true" className="block h-1 w-7 bg-primary" />
                 <h2 className="mt-5 text-2xl tracking-[-0.03em]">{principle.title}</h2>

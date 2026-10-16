@@ -25,8 +25,8 @@ export function ExperienceSection() {
           </div>
         </div>
 
-        <div data-reveal data-reveal-delay="1" className="mt-16 border-t border-border">
-          <article className="grid gap-8 py-10 lg:grid-cols-12 lg:py-12">
+        <div data-reveal data-reveal-delay="1" className="mt-12">
+          <article className="portfolio-card grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3">
                 <span className="size-2 bg-primary" aria-hidden="true" />
@@ -51,7 +51,7 @@ export function ExperienceSection() {
                 {experience.currentRole.tags.map((item) => (
                   <span
                     key={item}
-                    className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
+                    className="portfolio-chip border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
                   >
                     {item}
                   </span>
@@ -61,13 +61,11 @@ export function ExperienceSection() {
           </article>
         </div>
 
-        <div className="grid border-t border-border lg:grid-cols-2">
-          {experience.responsibilityGroups.map((group, index) => (
+        <div className="portfolio-card-grid mt-5 lg:grid-cols-2">
+          {experience.responsibilityGroups.map((group) => (
             <article
               key={group.title}
-              className={`border-border py-10 ${
-                index % 2 === 1 ? "lg:border-l lg:pl-10" : "lg:pr-10"
-              } ${index >= 2 ? "border-t" : index === 1 ? "border-t lg:border-t-0" : ""}`}
+              className="portfolio-card"
             >
               <p className="font-mono text-[10px] tracking-[0.18em] text-primary">{group.index}</p>
               <h3 className="mt-8 text-2xl tracking-[-0.03em]">{group.title}</h3>
@@ -125,9 +123,9 @@ export function ExperienceSection() {
           </div>
 
           <div className="mt-8 lg:col-span-8 lg:mt-0">
-            <div className="grid gap-px border border-border bg-border sm:grid-cols-3">
+            <div className="portfolio-card-grid sm:grid-cols-3">
               {experience.impact.map((item) => (
-                <div key={item.label} className="bg-background p-6">
+                <div key={item.label} className="portfolio-card">
                   <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
                     {item.label}
                   </p>

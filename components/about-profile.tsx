@@ -4,7 +4,7 @@ export function AboutProfile() {
   const { about } = portfolioContent;
 
   return (
-    <div className="mt-16 border-t border-border">
+    <div className="portfolio-card mt-12">
       <div className="grid lg:grid-cols-12">
         <div className="border-b border-border py-8 lg:col-span-5 lg:border-b-0 lg:border-r lg:pr-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">

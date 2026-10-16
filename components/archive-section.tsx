@@ -27,8 +27,8 @@ export function ArchiveSection() {
           </div>
         </div>
 
-        <div data-reveal data-reveal-delay="1" className="mt-16 grid border-t border-border lg:grid-cols-12">
-          <article className="relative overflow-hidden border-b border-border py-10 lg:col-span-5 lg:border-b-0 lg:border-r lg:py-12 lg:pr-10">
+        <div data-reveal data-reveal-delay="1" className="portfolio-card-grid mt-12 lg:grid-cols-12">
+          <article className="portfolio-card relative overflow-hidden lg:col-span-5">
             <div className="absolute -right-8 top-6 size-48 rounded-full bg-primary/8 blur-3xl" />
 
             <div className="relative flex items-center justify-between">
@@ -55,7 +55,7 @@ export function ArchiveSection() {
             </div>
           </article>
 
-          <article className="py-10 lg:col-span-7 lg:py-12 lg:pl-10">
+          <article className="portfolio-card lg:col-span-7">
             <div className="flex items-center justify-between">
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
                 Watching / stories
@@ -82,8 +82,8 @@ export function ArchiveSection() {
           </article>
         </div>
 
-        <div className="grid border-t border-border lg:grid-cols-12">
-          <article className="border-b border-border py-10 lg:col-span-7 lg:border-b-0 lg:border-r lg:py-12 lg:pr-10">
+        <div className="portfolio-card-grid mt-5 lg:grid-cols-12">
+          <article className="portfolio-card lg:col-span-7">
             <div className="flex items-center justify-between">
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
                 Listening / current rotation
@@ -115,7 +115,7 @@ export function ArchiveSection() {
             </div>
           </article>
 
-          <article className="py-10 lg:col-span-5 lg:py-12 lg:pl-10">
+          <article className="portfolio-card lg:col-span-5">
             <div className="flex items-center justify-between">
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
                 Playing / instruments

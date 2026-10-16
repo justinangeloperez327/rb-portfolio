@@ -32,7 +32,9 @@
 
 :root {
   color-scheme: dark;
-  --radius: 0.25rem;
+  --radius: 0.75rem;
+  --radius-card: 1.5rem;
+  --radius-button: 999px;
 
   --background: #05070a;
   --foreground: #f8fafc;
@@ -254,4 +256,25 @@
 @media (max-width: 639px) {
   .hero-artwork { max-width: 440px; width: 100%; justify-self: center; }
   .hero-artwork-note { font-size: 20px; }
+}
+
+/* Shared curved surfaces: explicit classes keep structural dividers flat. */
+.portfolio-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--card);
+  padding: clamp(20px, 3vw, 32px);
+  min-width: 0;
+}
+.portfolio-card-grid { display: grid; gap: 20px; }
+.portfolio-button { border-radius: var(--radius-button); }
+.hero-artwork { border-radius: 32px; }
+.portfolio-chip { border-radius: 999px; }
+.portfolio-icon { border-radius: 12px; }
+.portfolio-link-card { border-radius: var(--radius-card); border: 1px solid var(--border); padding: 24px; background: var(--card); }
+.portfolio-link-card:hover { border-color: #5278b8; background: var(--secondary); }
+.portfolio-button:active { background: #173d91; }
+@media (max-width: 639px) {
+  .hero-artwork { border-radius: 24px; }
+  .portfolio-card-grid { gap: 16px; }
 }
