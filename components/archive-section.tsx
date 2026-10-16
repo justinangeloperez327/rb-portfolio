@@ -15,7 +15,7 @@ export function ArchiveSection() {
 
           <div className="lg:col-span-8">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-blue-300">
-              Off duty / personal index
+              Personal interests
             </p>
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
               {archive.headingLead}
@@ -39,7 +39,7 @@ export function ArchiveSection() {
             </div>
 
             <div className="relative mt-16">
-              <p className="text-[clamp(4.5rem,11vw,8rem)] font-medium leading-none tracking-[-0.07em] text-foreground">
+              <p className="text-[clamp(3rem,6vw,5rem)] font-medium leading-none tracking-[-0.07em] text-foreground">
                 {archive.flower.name}.
               </p>
               <p className="mt-6 max-w-sm text-sm leading-6 text-muted-foreground">
@@ -142,16 +142,6 @@ export function ArchiveSection() {
           </article>
         </div>
 
-        <div className="border-t border-border pt-10">
-          <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:items-start">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
-              Design principle
-            </p>
-            <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-              {archive.designPrinciple}
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

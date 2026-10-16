@@ -160,7 +160,7 @@ export const portfolioContent: PortfolioContent = {
     role: "Procurement Manager",
     education: "Computer Science Graduate",
     positioning: "Procurement × Technology × Systems",
-    heroKicker: "Procurement / Technology / Systems",
+    heroKicker: "Procurement & Commercial Operations",
     heroDescription:
       "Connecting requirements, suppliers, and sound commercial decisions—with a technical mindset and a practical approach.",
     description:
@@ -180,7 +180,7 @@ export const portfolioContent: PortfolioContent = {
     { label: "About", href: "#about", id: "about", index: "01" },
     { label: "Experience", href: "#experience", id: "experience", index: "02" },
     { label: "Projects", href: "#projects", id: "projects", index: "03" },
-    { label: "Archive", href: "#archive", id: "archive", index: "04" },
+    { label: "Interests", href: "#archive", id: "archive", index: "04" },
     { label: "Contact", href: "#contact", id: "contact", index: "05" },
   ],
   principles: [
@@ -191,13 +191,13 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       index: "02",
-      title: "Technology",
-      description: "A Computer Science foundation with a practical interest in systems and software.",
+      title: "Supplier coordination",
+      description: "Clear requirements, supplier communication, and consistent follow-through.",
     },
     {
       index: "03",
-      title: "Creative",
-      description: "Music, film, anime, and design as a quieter layer behind the professional work.",
+      title: "Systems thinking",
+      description: "A Computer Science foundation that supports structured, analytical decisions.",
     },
   ],
   about: {
@@ -380,7 +380,7 @@ export const portfolioContent: PortfolioContent = {
     entries: [],
   },
   archive: {
-    eyebrow: "04 / Archive",
+    eyebrow: "04 / Personal interests",
     headingLead: "Away from work,",
     headingMuted: "music and stories.",
     introduction:
@@ -407,7 +407,7 @@ export const portfolioContent: PortfolioContent = {
     headingLead: "Good work usually starts with",
     headingMuted: "a clear conversation.",
     introduction:
-      "For professional conversations around procurement, commercial operations, technology, or systems, Ruth's contact channels can be connected here when the portfolio is ready for publication.",
+      "For conversations about procurement, supplier management, and commercial operations. Contact details will be available soon.",
     conversationAreas: ["Procurement", "Commercial operations", "Technology", "Systems & process"],
     channels: [
       {

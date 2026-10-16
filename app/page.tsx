@@ -47,12 +47,12 @@ export default function Home() {
                 <p>{portfolioContent.identity.education}</p>
               </div>
             </div>
-            <div className="hero-artwork">
+            <div className="hero-artwork" aria-hidden="true">
               <div className="hero-artwork-caption" aria-hidden="true">
                 <span>Ruth Berlie Perez</span><span>Midnight Lily</span>
               </div>
               <MidnightLily />
-              <p className="hero-artwork-note">A structured mind.<br />A creative perspective.</p>
+              <p className="hero-artwork-note">Clarity in requirements.<br />Confidence in decisions.</p>
             </div>
           </div>
         </section>
@@ -64,10 +64,10 @@ export default function Home() {
                 key={principle.title}
                 data-reveal
                 data-reveal-delay={String(position)}
-                className="portfolio-card"
+                className="border-l-2 border-primary/60 px-5 py-3"
               >
-                <span aria-hidden="true" className="block h-1 w-7 bg-primary" />
-                <h2 className="mt-5 text-2xl tracking-[-0.03em]">{principle.title}</h2>
+                
+                <h2 className="text-xl tracking-[-0.03em]">{principle.title}</h2>
                 <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">{principle.description}</p>
               </article>
             ))}
