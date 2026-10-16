@@ -208,3 +208,34 @@
   .blue-section { padding-block: 80px; }
   .blue-section-layout { grid-template-columns: 200px minmax(0, 1fr); gap: 48px; }
 }
+
+/* Blue Lily: fixed soft light; only the flower's transform is animated. */
+.blue-lily { position: relative; }
+.blue-lily::before {
+  content: "";
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(59 130 246 / .13), rgb(37 99 235 / .04) 45%, transparent 72%);
+  pointer-events: none;
+}
+.blue-lily-petals {
+  transform-box: view-box;
+  transform-origin: 320px 308px;
+  filter: drop-shadow(0 0 3px rgb(96 165 250 / .25));
+}
+.blue-lily-petals > path {
+  fill: rgb(59 130 246 / .035);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes blue-lily-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .blue-lily-petals { animation: blue-lily-turn 120s linear infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blue-lily-petals { animation: none; }
+}
