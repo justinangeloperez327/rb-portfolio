@@ -1,6 +1,6 @@
 export function MidnightLily() {
   return (
-    <div className="relative isolate mx-auto aspect-square w-full max-w-[620px]" aria-hidden="true">
+    <div className="blue-lily relative isolate mx-auto aspect-square w-full max-w-[620px]" aria-hidden="true">
 
 
       <svg
@@ -21,11 +21,7 @@ export function MidnightLily() {
           </radialGradient>
         </defs>
 
-        <circle cx="320" cy="320" r="232" stroke="#5278B8" strokeDasharray="2 14" />
-        <circle cx="320" cy="320" r="168" stroke="#5278B8" strokeOpacity="0.75" />
-        <path d="M88 320H552M320 88V552" stroke="#5278B8" strokeOpacity="0.5" />
-
-        <g className="lily-breathe">
+        <g className="blue-lily-petals">
           <ellipse cx="320" cy="310" rx="190" ry="190" fill="url(#lily-fill)" />
 
           <path
